@@ -17,7 +17,7 @@ auth = tweepy.OAuth1UserHandler(
 api = tweepy.API(auth)
 
 
-video_path = '../nomina.mp4'
+video_path = 'nomina.mp4'
 
 if dt.today().weekday() in (0, 1, 2):
     upload_result = api.media_upload(video_path)
