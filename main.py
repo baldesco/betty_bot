@@ -19,7 +19,7 @@ api = tweepy.API(auth)
 
 video_path = '../nomina.mp4'
 
-if dt.today().weekday() == 0:
+if dt.today().weekday() in (0, 1, 2):
     upload_result = api.media_upload(video_path)
     api.update_status(status="", media_ids=[
         upload_result.media_id_string])
