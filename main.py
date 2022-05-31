@@ -1,3 +1,4 @@
+from datetime import datetime as dt
 import os
 import tweepy
 from dotenv import load_dotenv, find_dotenv
@@ -17,8 +18,8 @@ api = tweepy.API(auth)
 
 
 video_path = '../nomina.mp4'
-api.media_upload(video_path)
 
-upload_result = api.media_upload(video_path)
-api.update_status(status="", media_ids=[
-                  upload_result.media_id_string])
+if dt.today().weekday() == 0:
+    upload_result = api.media_upload(video_path)
+    api.update_status(status="", media_ids=[
+        upload_result.media_id_string])
